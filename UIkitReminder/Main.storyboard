@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8HB-wf-HqH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QPe-XP-2sN">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Reminder View Controller-->
+        <!--Reminder List View Controller-->
         <scene sceneID="hSg-md-wEI">
             <objects>
-                <collectionViewController id="8HB-wf-HqH" customClass="ReminderViewController" customModule="UIkitReminder" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="8HB-wf-HqH" customClass="ReminderListViewController" customModule="UIkitReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Di7-Pu-uGp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,10 +27,29 @@
                             <outlet property="delegate" destination="8HB-wf-HqH" id="BzR-lo-wpp"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="Jrj-M2-QeU"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ti6-gk-oBq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10" y="-24"/>
+            <point key="canvasLocation" x="915.26717557251902" y="-24.647887323943664"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kt4-FT-h6i">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QPe-XP-2sN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vSa-Ak-ixb">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8HB-wf-HqH" kind="relationship" relationship="rootViewController" id="xzp-P0-egB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yfe-MU-peX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-11.450381679389313" y="-24.647887323943664"/>
         </scene>
     </scenes>
     <resources>

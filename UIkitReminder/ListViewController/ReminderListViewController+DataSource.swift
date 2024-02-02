@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ReminderViewController {
+extension ReminderListViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Int, Reminder.ID>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Reminder.ID>
     

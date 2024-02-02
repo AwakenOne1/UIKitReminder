@@ -7,10 +7,7 @@
 
 import UIKit
 
-import UIKit
-
-
-class ReminderViewController: UICollectionViewController {
+class ReminderListViewController: UICollectionViewController {
     var dataSource: DataSource!
     var reminders: [Reminder] = Reminder.sampleData
 
@@ -37,6 +34,19 @@ class ReminderViewController: UICollectionViewController {
         updateSnapshot()
         
         collectionView.dataSource = dataSource
+    }
+    func pushDetailViewForReminder(withId id: Reminder.ID) {
+        let reminder = reminder(with: id)
+        let viewController = ReminderViewController(reminder: reminder)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    override func collectionView(
+        _ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath
+    ) -> Bool {
+        let id = reminders[indexPath.item].id
+        pushDetailViewForReminder(withId: id)
+        return false
     }
 
     private func listLayout() -> UICollectionViewCompositionalLayout {
