@@ -20,6 +20,7 @@
 		DA81A4122B6D298D00BAD0D6 /* ReminderListViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81A4112B6D298D00BAD0D6 /* ReminderListViewController+Actions.swift */; };
 		DA81A4142B6D36F000BAD0D6 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81A4132B6D36F000BAD0D6 /* ReminderViewController.swift */; };
 		DA81A4172B6D397300BAD0D6 /* ReminderViewController+Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA81A4162B6D397300BAD0D6 /* ReminderViewController+Row.swift */; };
+		DAA9C6532B76662B0033268E /* ReminderViewController+Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA9C6522B76662B0033268E /* ReminderViewController+Section.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		DA81A4112B6D298D00BAD0D6 /* ReminderListViewController+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderListViewController+Actions.swift"; sourceTree = "<group>"; };
 		DA81A4132B6D36F000BAD0D6 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		DA81A4162B6D397300BAD0D6 /* ReminderViewController+Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderViewController+Row.swift"; sourceTree = "<group>"; };
+		DAA9C6522B76662B0033268E /* ReminderViewController+Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderViewController+Section.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			children = (
 				DA81A4132B6D36F000BAD0D6 /* ReminderViewController.swift */,
 				DA81A4162B6D397300BAD0D6 /* ReminderViewController+Row.swift */,
+				DAA9C6522B76662B0033268E /* ReminderViewController+Section.swift */,
 			);
 			path = DetailVIewController;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 				DA5AAB052B516C2A00122E87 /* ReminderListViewController.swift in Sources */,
 				DA50CA022B5808910094A001 /* Date+Today.swift in Sources */,
 				DA5AAB012B516C2A00122E87 /* AppDelegate.swift in Sources */,
+				DAA9C6532B76662B0033268E /* ReminderViewController+Section.swift in Sources */,
 				DA5AAB032B516C2A00122E87 /* SceneDelegate.swift in Sources */,
 				DA81A4142B6D36F000BAD0D6 /* ReminderViewController.swift in Sources */,
 				DA81A4172B6D397300BAD0D6 /* ReminderViewController+Row.swift in Sources */,
