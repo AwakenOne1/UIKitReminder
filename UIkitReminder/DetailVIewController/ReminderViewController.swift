@@ -23,7 +23,7 @@ class ReminderViewController: UICollectionViewController {
     private var dataSource: DataSource!
 
 
-    init(reminder: Reminder, onChange: @escaping (Reminder) -> Void ) {
+    init(reminder: Reminder, onChange: @escaping (Reminder) -> Void) {
         self.reminder = reminder
         self.workingReminder = reminder
         self.onChange = onChange
@@ -42,6 +42,8 @@ class ReminderViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+
         let cellRegistration = UICollectionView.CellRegistration(handler: cellRegistrationHandler)
         dataSource = DataSource(collectionView: collectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: Row) in
@@ -85,9 +87,9 @@ class ReminderViewController: UICollectionViewController {
         case (.title, .editableText(let title)):
             cell.contentConfiguration = titleConfiguration(for: cell, with: title)
         case (.date, .editableDate(let date)):
-                    cell.contentConfiguration = dateConfiguration(for: cell, with: date)
+            cell.contentConfiguration = dateConfiguration(for: cell, with: date)
         case (.notes, .editableText(let notes)):
-                    cell.contentConfiguration = notesConfiguration(for: cell, with: notes)
+            cell.contentConfiguration = notesConfiguration(for: cell, with: notes)
         default:
             fatalError("Unexpected combination of section and row.")
         }
@@ -95,16 +97,38 @@ class ReminderViewController: UICollectionViewController {
     }
 
 
+    @objc func didCancelEdit() {
+        workingReminder = reminder
+        setEditing(false, animated: true)
+    }
+
+
+    private func prepareForEditing() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .cancel, target: self, action: #selector(didCancelEdit))
+        updateSnapshotForEditing()
+    }
+
+
     private func updateSnapshotForEditing() {
         var snapshot = Snapshot()
         snapshot.appendSections([.title, .date, .notes])
         snapshot.appendItems(
-                    [.header(Section.title.name), .editableText(reminder.title)], toSection: .title)
+            [.header(Section.title.name), .editableText(reminder.title)], toSection: .title)
         snapshot.appendItems(
-                    [.header(Section.date.name), .editableDate(reminder.dueDate)], toSection: .date)
+            [.header(Section.date.name), .editableDate(reminder.dueDate)], toSection: .date)
         snapshot.appendItems(
-                    [.header(Section.notes.name), .editableText(reminder.notes)], toSection: .notes)
+            [.header(Section.notes.name), .editableText(reminder.notes)], toSection: .notes)
         dataSource.apply(snapshot)
+    }
+
+
+    private func prepareForViewing() {
+        navigationItem.leftBarButtonItem = nil
+        if workingReminder != reminder {
+            reminder = workingReminder
+        }
+        updateSnapshotForViewing()
     }
 
 
@@ -115,27 +139,6 @@ class ReminderViewController: UICollectionViewController {
             [Row.header(""), Row.title, Row.date, Row.time, Row.notes], toSection: .view)
         dataSource.apply(snapshot)
     }
-    
-    private func prepareForViewing() {
-        navigationItem.leftBarButtonItem = nil
-        if workingReminder != reminder {
-            reminder = workingReminder
-        }
-        updateSnapshotForViewing()
-    }
-    
-    
-    @objc func didCancelEdit() {
-        workingReminder = reminder
-        setEditing(false, animated: true)
-    }
-    
-    private func prepareForEditing() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .cancel, target: self, action: #selector(didCancelEdit))
-        updateSnapshotForEditing()
-        
-    }
 
 
     private func section(for indexPath: IndexPath) -> Section {
@@ -145,6 +148,4 @@ class ReminderViewController: UICollectionViewController {
         }
         return section
     }
-    
-    
 }
